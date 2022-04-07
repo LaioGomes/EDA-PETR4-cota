@@ -1,0 +1,28 @@
+import yfinance as yf
+import streamlit as st
+import pandas as pd
+
+st.write("""
+# Aplicação de Preco da Acao
+
+Esse e o **Preco de fechamento** e o **Volume de negócios** da Petrobras
+
+""")
+
+tickerSymbol = 'PETR4.SA'
+
+tickerData = yf.Ticker(tickerSymbol)
+
+tickerDf = tickerData.history(period= '1d', start='2010-5-31', end='2022-3-31')
+
+st.line_chart(tickerDf.Close)
+st.bar_chart(tickerDf.Volume)
+
+tickerSymbol = 'PETR4.SA'
+
+tickerData = yf.Ticker(tickerSymbol)
+
+tickerDf = tickerData.history(period= '1d', start='2010-5-31', end='2022-3-31')
+
+st.line_chart(tickerDf.Close)
+st.bar_chart(tickerDf.Volume)
